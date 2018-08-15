@@ -14,9 +14,15 @@ function analyzeYear() {
   } else {
     isLeapYear = false
   }
+  if (inputtedYear.mod(100)) {
+    isLeapYear = false
+  }
+  if (inputtedYear.mod(400)) {
+    isLeapYear = true
+  }
   return isLeapYear
 }
 
 Number.prototype.mod = function(m) {
-  return this % m === 0
+  return (this % m === 0)
 }
