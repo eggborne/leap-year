@@ -1,8 +1,10 @@
 $(function(){
   $('button').click(function(){
+    $('#result').css({
+      'opacity':'1'
+    }).text(getResult())
 
-    $('#result').append("is leap year? " + analyzeYear())
-
+    event.preventDefault()
   })
 })
 
@@ -21,6 +23,12 @@ function analyzeYear() {
     isLeapYear = true
   }
   return isLeapYear
+}
+function getResult() {
+  var input = $('input').val()
+  var not = "NOT "
+  analyzeYear() ? not = "" : false
+  return input + " is " + not + "a leap year."
 }
 
 Number.prototype.mod = function(m) {
